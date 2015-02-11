@@ -29,6 +29,7 @@ class SinatraApp < Sinatra::Base
     erb "<% if session[:authenticated] %>
            <div>
              Hello, <b><%= session[:nickname] %></b>! [<%= session[:provider] %>]
+             <img src='<%= session[:image] %>'>
            </div>
            <a href='/logout'>Logout</a><br>
          <% else %>
@@ -45,6 +46,7 @@ class SinatraApp < Sinatra::Base
     session[:provider] = result['provider']
     session[:uid] = result['uid']
     session[:nickname] = result['info']['nickname'] || result['info']['first_name']
+    session[:image] = result['info']['image']
     erb "<a href='/'>Top</a><br>
          <h1>#{params[:provider]}</h1>
          <pre>#{JSON.pretty_generate(result)}</pre>"
