@@ -1,10 +1,9 @@
 OmniAuthを使って見る
 ===================
 
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
-
-以前twitter_oauthというgemを使ってTwitter認証を試したが、他のウェブサービスを使って認証も
-してみたいので、[OmniAuth](https://github.com/intridea/omniauth#integrating-omniauth-into-your-application)
+以前[twitter_oauthというgemを使ってTwitter認証を試した](http://qiita.com/drafts/9dec7c97295183d9fa47/edit)
+が、他のウェブサービスを使って認証もしてみたいので、
+[OmniAuth](https://github.com/intridea/omniauth#integrating-omniauth-into-your-application)
 というgemを使ってみることにする。
 
 OmniAuthでググるとRailsを使ったサンプルばかりが引っかかって、よりシンプルな使い方が
@@ -15,10 +14,7 @@ OmniAuthでググるとRailsを使ったサンプルばかりが引っかかっ�
 アプリはHerokuを使ってデプロイする。言語はRuby、フレームワークはSinatraを使う。
 
 [コード](https://github.com/tyfkda/omniauth-test), [デモ](https://omniauth-github-tyfkda-test.herokuapp.com/)
-
-### Sinatraアプリの準備
-
-以前の記事を参考にしてください
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/tyfkda/omniauth-test.git)
 
 ### OmniAuthのセットアップ
 
@@ -83,7 +79,7 @@ SinatraApp.run! if __FILE__ == $0
 
 ### 他のウェブサービスでもログインできるようにする
 
-OmniAuthではいろんなウェブサービスに対応できるようになっている（それぞれを`戦略`と呼ぶ）
+OmniAuthではいろんなウェブサービスに対応できるようになっている（それぞれを`戦略`と呼ぶ）。
 追加する手順は（例えば`github`用には）、
 
 1. それぞれのウェブサービスで、認証を使うアプリを新規登録する（後述）
