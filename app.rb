@@ -6,6 +6,7 @@ require 'omniauth'
 require 'omniauth-github'
 require 'omniauth-twitter'
 require 'omniauth-facebook'
+require 'omniauth-gplus'
 
 class SinatraApp < Sinatra::Base
   configure :development do
@@ -21,6 +22,7 @@ class SinatraApp < Sinatra::Base
     provider :github, ENV['GITHUB_KEY'], ENV['GITHUB_SECRET']
     provider :twitter, ENV['TWITTER_KEY'], ENV['TWITTER_SECRET']
     provider :facebook, ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET']
+    provider :gplus, ENV['GPLUS_KEY'], ENV['GPLUS_SECRET'], scope: 'plus.login'
   end
 
   get '/' do
@@ -33,6 +35,7 @@ class SinatraApp < Sinatra::Base
            <a href='/auth/github'>Login with Github</a><br>
            <a href='/auth/twitter'>Login with Twitter</a><br>
            <a href='/auth/facebook'>Login with Facebook</a><br>
+           <a href='/auth/gplus'>Login with Google+</a><br>
          <% end %>"
   end
 
