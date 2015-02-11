@@ -1,0 +1,6 @@
+{
+  "name": "omniauth-github-tyfkda-test",
+  "description": "OmniAuth test",
+  "repository": "https://github.com/tyfkda/omniauth-test.git",
+  "keywords": ["omniauth", "ruby", "twitter", "github", "facebook", "google+"]
+}
