@@ -4,6 +4,8 @@ require 'sinatra/reloader' if development?
 require 'json'
 require 'omniauth'
 require 'omniauth-github'
+require 'omniauth-twitter'
+require 'omniauth-facebook'
 
 class SinatraApp < Sinatra::Base
   configure :development do
@@ -17,16 +19,20 @@ class SinatraApp < Sinatra::Base
 
   use OmniAuth::Builder do
     provider :github, ENV['GITHUB_KEY'], ENV['GITHUB_SECRET']
+    provider :twitter, ENV['TWITTER_KEY'], ENV['TWITTER_SECRET']
+    provider :facebook, ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET']
   end
 
   get '/' do
     erb "<% if session[:authenticated] %>
            <div>
-             Hello, <b><%= session[:nickname] %></b>!
+             Hello, <b><%= session[:nickname] %></b>! [<%= session[:provider] %>]
            </div>
            <a href='/logout'>Logout</a><br>
          <% else %>
            <a href='/auth/github'>Login with Github</a><br>
+           <a href='/auth/twitter'>Login with Twitter</a><br>
+           <a href='/auth/facebook'>Login with Facebook</a><br>
          <% end %>"
   end
 
@@ -35,7 +41,7 @@ class SinatraApp < Sinatra::Base
     session[:authenticated] = true
     session[:provider] = result['provider']
     session[:uid] = result['uid']
-    session[:nickname] = result['info']['nickname']
+    session[:nickname] = result['info']['nickname'] || result['info']['first_name']
     erb "<a href='/'>Top</a><br>
          <h1>#{params[:provider]}</h1>
          <pre>#{JSON.pretty_generate(result)}</pre>"
