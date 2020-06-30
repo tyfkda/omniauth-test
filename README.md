@@ -1,7 +1,7 @@
 OmniAuthを使って見る
 ===================
 
-以前[twitter_oauthというgemを使ってTwitter認証を試した](http://qiita.com/drafts/9dec7c97295183d9fa47/edit)
+以前[twitter_oauthというgemを使ってTwitter認証を試した](https://github.com/tyfkda/twitter-oauth-test)
 が、他のウェブサービスを使って認証もしてみたいので、
 [OmniAuth](https://github.com/intridea/omniauth#integrating-omniauth-into-your-application)
 というgemを使ってみることにする。
@@ -105,7 +105,7 @@ OmniAuthではいろんなウェブサービスに対応できるようになっ
   [My Apps] > [+ Add a New App] > [ウェブサイト]でアプリを作成
   * 名前を適当に設定
   * ウェザードで順に設定する画面になるが、最上段の[My Apps]をクリックしてやるとアプリができている
-* 作成したアプリを選んで、Settings > [+ Add Platform] > Website でアプリを登録する
+* 作成したアプリを選んで、Settings > [+ Add Platform] > Website でアプリを登録する
   * `Site URL`と`Mobile Site URL`の２つが登録できるので、例えば１つはローカルテスト用に
     `http://localhost:4567/`を登録してやることもできる
 
